@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Indie Game Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Indie Game Shop</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+  <h2>Contact</h2>
+  <form onsubmit="showMessage(event)">
+    <label>Name:</label>
+    <input type="text" required><br><br>
+    <label>Message:</label>
+    <textarea required></textarea><br><br>
+    <button type="submit">Send</button>
+  </form>
+  </div>
+
+  <footer>
+    <p>© 2025 Indie Game Shop</p>
+  </footer>
+
+
+    <p id="thanks" style="display:none; color:green;">Thank you for your message!!!!</p>
+
+  <!-- Đặt script ở cuối body -->
+  <script>
+    function showMessage(e){
+      e.preventDefault(); // không reload trang
+      document.getElementById("thanks").style.display = "block";
+    }
+  </script>
+</body>
+</html>
+

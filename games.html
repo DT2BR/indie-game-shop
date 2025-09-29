@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Games - Indie Game Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Indie Game Shop</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Game list:</h2>
+<div class="game-grid">
+    <div class="game-card" id="gameA">
+      <h4>Snake</h4>
+      <p>Classic snake game</p>
+       <button onclick="openModal('Game Snake')">Buy game</button>
+       <a href="games-demo/Snake.html"> <button>Play Demo</button> </a>
+    </div>
+
+    <div class="game-card">
+      <h4>Game B</h4>
+      <p>Flappy bird-like game</p>
+       <button onclick="openModal('Game Demo 2')">Buy game</button>
+    </div>
+
+    <div class="game-card">
+      <h4>Game C</h4>
+      <p>Puzzle game</p>
+       <button onclick="openModal('Game Demo 3')">Buy game</button>
+    </div>
+      <div class="game-card">
+      <h4>Game D</h4>
+      <p>tetris-like</p>
+       <button onclick="openModal('Game Demo 1')">Buy game</button>
+       <a href="games-demo/game-1.html"> <button>Play Demo</button> </a>
+    </div>
+        <div class="game-card">
+      <h4>Game E</h4>
+      <p>2D platform</p>
+       <button onclick="openModal('Game Demo 1')">Buy game</button>
+       <a href="games-demo/game-1.html"> <button>Play Demo</button> </a>
+    </div>
+        <div class="game-card">
+      <h4>Game F</h4>
+      <p>2D platform</p>
+       <button onclick="openModal('Game Demo 1')">Buy game</button>
+       <a href="games-demo/game-1.html"> <button>Play Demo</button> </a>
+    </div>
+    </div>
+  </div>
+
+
+<div id="gameModal" style="display:none; position:fixed; top:0; left:0; 
+  width:100%; height:100%; background:rgba(0, 0, 0, 0.5);">
+  <div style="background:white; padding:20px; margin:100px auto; width:300px;">
+    <h3 id="modalTitle"></h3>
+    <p>Do you want to buy this game</p>
+    
+    <div style="display:flex; justify-content:space-between;">
+      <button onclick="closeModal()">Close</button>
+      <button onclick="closeModal()">Buy Game</button>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  function openModal(gameName){
+    document.getElementById("modalTitle").innerText = gameName; 
+    document.getElementById("gameModal").style.display = "block"; 
+  }
+  function closeModal(){
+    document.getElementById("gameModal").style.display = "none"; 
+  }
+</script>
+  <footer>
+    <p>© 2025 Indie Game Shop</p>
+  </footer>
+</body>
+</html>
