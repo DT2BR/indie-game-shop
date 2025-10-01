@@ -80,7 +80,7 @@ function draw() {
     ctx.strokeRect(snake[i].x, snake[i].y, box, box);
   }
 
-  // vẽ food
+  // vẽ apple
   ctx.fillStyle = "red";
   ctx.fillRect(food.x, food.y, box, box);
 
@@ -104,7 +104,7 @@ function draw() {
     return;
   }
 
-  // ăn food
+  // ăn apple
   if(snakeX === food.x && snakeY === food.y){
     score++;
     document.getElementById("score").innerText = "Score: " + score;
