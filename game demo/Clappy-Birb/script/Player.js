@@ -1,21 +1,23 @@
-window.addEventListener('load', function(){
-    const canvas = document.getElementById('canvas1');
-    const ctx = canvas.getContext('2d');
-    canvas.width = 1500;
-    canvas.height = 500;
-
-    class Game{
-        constructor(width, height){
-            this.width = width;
-            this.height = height;
-        }
-        update(){
-
-        }
-
-        draw(){
-
-            
-        }
+export class Player{
+    constructor(game){
+        this.game = game;
+        this.width = 100;
+        this.height = 100;
+        this.x = 0;
+        this.y = 100;
+        this.image = document.getElementById("Player");
     }
-});
+
+    update(){
+
+    }
+
+    draw(context){
+        context.fillStyle = 'white';
+        context.fillRect(this.x, this.y, this.width, this.height);
+        context.drawImage(this.image, this.x, this.y);
+    
+    }
+
+
+}
