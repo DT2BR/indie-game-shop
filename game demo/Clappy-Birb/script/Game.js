@@ -1,4 +1,6 @@
 import { Player } from "./Player.js";
+import {InputHandler} from "./input.js";
+
 
 window.addEventListener('load', function(){
     const canvas = document.getElementById('canvas1');
@@ -11,14 +13,16 @@ window.addEventListener('load', function(){
             this.width = width;
             this.height = height;
             this.player = new Player(this);
+            this.input = new InputHandler(this.player);
         }
         update(){
             this.player.update();
         }
 
         draw(context){
-                this.player.draw(context);
-            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);    
+            this.player.draw(context);
+                
         }
     }
 
@@ -27,7 +31,7 @@ window.addEventListener('load', function(){
     console.log(game);
 
     function animate(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
         game.draw(ctx);
         game.update();
         requestAnimationFrame(animate);
