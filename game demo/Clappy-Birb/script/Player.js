@@ -9,12 +9,11 @@ export class Player{
     }
 
     update(){
-
+            this.y++;
     }
 
     draw(context){
-        context.fillStyle = 'white';
-        context.fillRect(this.x, this.y, this.width, this.height);
+
         context.drawImage(this.image, this.x, this.y);
     
     }
