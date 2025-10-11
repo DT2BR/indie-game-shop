@@ -15,7 +15,7 @@ export class Player{
             this.velocityY += this.gravity;
             this.y += this.velocityY;
             
-            //for the bird not fall out of the screen
+            //để bird không rơi khỏi màn hình 
             if (this.y + this.height > this.game.height) {
       this.y = this.game.height - this.height;
       this.velocityY = 0;
