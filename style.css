@@ -96,6 +96,23 @@ button, .btn {
   font-size: 0.9rem;
 }
 
+.game-card.horizontal {
+  display: flex;                
+  align-items: center;          
+  gap: 20px;                    
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 1000px;             
+  margin: 20px auto;
+  background-color: #fff;
+}
+
+
+.game-card .game-info {
+  flex: 1;                      
+}
+
 button:hover, .btn:hover {
   background: #0040ff;
 }
