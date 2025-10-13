@@ -26,6 +26,7 @@ header h1 {
   
 }
 
+
 .search-bar {
   flex: 1;
   display: flex;
@@ -52,6 +53,17 @@ nav a {
 
 nav a:hover {
   color: #ffd700;
+}
+
+.welcome-text{
+  font-family: 'Quicksand', sans-serif; /* đổi font tại đây */
+  font-size: 48px;                     /* kích thước nổi bật */
+  text-align: center;
+  color: #002486;                      /* màu tím ánh điện */
+  text-transform: uppercase;           /* chữ in hoa */
+  letter-spacing: 3px;                 /* giãn chữ nhẹ */
+  margin-top: 10px;
+  text-shadow: 0 4px 10px rgba(255,255,255,0.7); /* tạo chiều sâu */
 }
 
 .container {
@@ -81,7 +93,7 @@ h2, h3 {
 
 .game-img {
   width: 100%;         /* co theo chiều rộng của card */
-  height: 250px;       /* giữ cùng chiều cao */
+  height: auto;       /* giữ cùng chiều cao */
   object-fit: cover;   /* cắt bớt cho vừa khung */
   aspect-ratio: 1/1;
   border-radius: 8px;  /* bo góc nhẹ cho đẹp */
