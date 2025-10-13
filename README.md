@@ -13,3 +13,4 @@ Currently, it includes a demo of the classic **Snake Game** as an example of how
 ## Future Plans
 - Add more game demos
 - Improve UI/UX for browsing
+- Make a scoreboard for each game
