@@ -7,8 +7,8 @@ export class Player{
         this.y = 100;
         this.image = document.getElementById("Player");
         this.velocityY = 0;
-        this.gravity = 0.05;
-        this.jumpstrength = -1;
+        this.gravity = 0.02;
+        this.jumpstrength = -1.3;
     }
 
     update(){
