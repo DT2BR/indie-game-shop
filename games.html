@@ -6,14 +6,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+    <header>
+    <a href="./index.html">
+        <img src="./homepage_img/logo.png" alt="web logo" width="80px" height="80px" >
+    </a>
     <h1>Indie Game Shop</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="games.html">Games</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+      <div class="search-bar">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search Game..."
+      onkeyup="searchGame()"
+    />
+  </div>
+        <nav>
+            <ul>
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="contact.html">Contact</a>
+            </ul>
+        </nav>
+    </header>
 
   <div class="container">
     <h2>Game list:</h2>
