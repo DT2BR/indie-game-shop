@@ -5,7 +5,7 @@ export class Pipe {
     this.gap = 200; 
     this.speed = 3;
     this.x = x;
-
+    this.passed = false;
     
     this.topHeight = Math.random() * (this.game.height - this.gap - 100) + 50;
   }
@@ -17,6 +17,7 @@ export class Pipe {
     if (this.x + this.width < 0) {
       this.x = this.game.width;
       this.topHeight = Math.random() * (this.game.height - this.gap - 100) + 50;
+      this.passed = false;
     }
   }
 

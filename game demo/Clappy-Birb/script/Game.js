@@ -1,6 +1,7 @@
 import { Player } from "./Player.js";
 import {InputHandler} from "./input.js";
 import { Pipe } from "./Pipe.js"; 
+import { Score } from './score.js';
 
 window.addEventListener('load', function(){
     const canvas = document.getElementById('canvas1');
@@ -17,6 +18,7 @@ window.addEventListener('load', function(){
             this.player = new Player(this);
             this.input = new InputHandler(this.player);
             this.gameOver = false;
+            this.score = new Score();
             this.pipes = [
                 new Pipe(this, this.width + 500),
                 new Pipe(this, this.width + 1000),
@@ -32,7 +34,7 @@ window.addEventListener('load', function(){
 
             
         }
-        update(){
+  update(){
             if (this.gameOver) return;
             this.player.update();
             this.pipes.forEach(pipe => pipe.update());
@@ -50,7 +52,12 @@ window.addEventListener('load', function(){
         this.gameOver = true;
       }
 
-      
+      for (const pipe of this.pipes){
+        if (!pipe.passed && pipe.x + pipe.width < this.player.x) {
+        this.score.addPoint();
+        pipe.passed = true;
+}
+    }      
     }
 
     checkCollision(a, b) {
@@ -70,6 +77,7 @@ window.addEventListener('load', function(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);    
         this.pipes.forEach(pipe => pipe.draw(context));
         this.player.draw(context);
+        this.score.draw(context, this.width);
         if(this.gameOver){
                 ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
                 ctx.fillRect(0, 0, this.width, this.height); // làm mờ màn hình
@@ -92,8 +100,10 @@ window.addEventListener('load', function(){
             new Pipe(this, this.width + 600),
             ];
             this.gameOver = false;
+            this.score = new Score();
+
             }
-        
+      
             
 
     }
