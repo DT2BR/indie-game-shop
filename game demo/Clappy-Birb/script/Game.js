@@ -78,16 +78,26 @@ window.addEventListener('load', function(){
         this.pipes.forEach(pipe => pipe.draw(context));
         this.player.draw(context);
         this.score.draw(context, this.width);
-        if(this.gameOver){
-                ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-                ctx.fillRect(0, 0, this.width, this.height); // làm mờ màn hình
+        if (this.gameOver) {
+  
+        ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+        ctx.fillRect(0, 0, this.width, this.height);
 
-                ctx.fillStyle = "white";
-                ctx.textAlign = "center";
-                ctx.font = "48px sans-serif";
-                ctx.fillText("GAME OVER", this.width / 2, this.height / 2);
+  
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.font = "48px sans-serif";
+        ctx.fillText("GAME OVER", this.width / 2, this.height / 2 - 40);
 
-            }
+  
+        ctx.font = "32px sans-serif";
+        ctx.fillText(`Score: ${this.score.value}`, this.width / 2, this.height / 2 + 20);
+
+  
+        ctx.font = "24px sans-serif";
+        ctx.fillText("Press SPACE to restart", this.width / 2, this.height / 2 + 70);
+}
+
 
 
         }

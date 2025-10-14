@@ -36,14 +36,18 @@ export class Pipe {
 
 
   draw(context) {
-    context.fillStyle = "green";
+    context.fillStyle = "green ";
 
+    context.strokeStyle = "black"; 
+    context.lineWidth = 3;
     //  trên
     context.fillRect(this.x, 0, this.width, this.topHeight);
+    context.strokeRect(this.x, 0, this.width, this.topHeight);
 
     //  dưới
     const bottomY = this.topHeight + this.gap;
     const bottomHeight = this.game.height - bottomY;
     context.fillRect(this.x, bottomY, this.width, bottomHeight);
+    context.strokeRect(this.x, bottomY, this.width, bottomHeight);
   }
 }
