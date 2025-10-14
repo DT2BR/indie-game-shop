@@ -96,8 +96,11 @@ window.addEventListener('load', function(){
         this.player = new Player(this);
         this.input = new InputHandler(this.player);
         this.pipes = [
-            new Pipe(this, this.width + 200),
-            new Pipe(this, this.width + 600),
+                new Pipe(this, this.width + 500),
+                new Pipe(this, this.width + 1000),
+                new Pipe(this, this.width + 1500),
+                
+                
             ];
             this.gameOver = false;
             this.score = new Score();
