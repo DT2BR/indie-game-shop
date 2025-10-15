@@ -39,7 +39,7 @@ export class Pipe {
     context.fillStyle = "green ";
 
     context.strokeStyle = "black"; 
-    context.lineWidth = 3;
+    context.lineWidth = 3  ;
     //  trên
     context.fillRect(this.x, 0, this.width, this.topHeight);
     context.strokeRect(this.x, 0, this.width, this.topHeight);

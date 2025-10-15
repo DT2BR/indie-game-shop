@@ -43,6 +43,8 @@ window.addEventListener('load', function(){
         for (const box of pipe.getHitboxes()) {
           if (this.checkCollision(this.player, box)) {
             this.gameOver = true;
+
+
           }
         }
       }
@@ -91,7 +93,7 @@ window.addEventListener('load', function(){
 
   
         ctx.font = "32px sans-serif";
-        ctx.fillText(`Score: ${this.score.value}`, this.width / 2, this.height / 2 + 20);
+        ctx.fillText(`Score: ${this.score.value   }`, this.width / 2, this.height / 2 + 20);
 
   
         ctx.font = "24px sans-serif";
