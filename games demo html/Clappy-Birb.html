@@ -33,6 +33,37 @@
       font-size: 18px;
       margin-top: 10px;
     }
+
+
+
+
+
+
+  #leaderboard {
+  margin-top: 20px;
+  text-align: center;
+  width: 300px;
+}
+
+#leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#leaderboard th, #leaderboard td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+#leaderboard th {
+  background-color: #002486;
+  color: white;
+}
+
+
+
+
+
   </style>
    <link rel="stylesheet" href="../game demo/Clappy-Birb/game-style.css">
 </head>
@@ -41,7 +72,59 @@
   <canvas id="canvas1"> </canvas>
   <img id="Player" src="../game demo/Clappy-Birb/assets/player.png" >
   <script type="module" src="../game demo/Clappy-Birb/script/Game.js"></script>
-  <a href="../games.html">← Quay lại danh sách game</a>
+  <div id="leaderboard">
+  <h3>\( ﾟヮﾟ)/🏆 LeaderBoard</h3>
+  <table id="scoreboard">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+</div>
+  
+
+<a href="../games.html">← back to game menu</a>
+
+
+
+<!-- script cho leaderboard -->
+
+<script>
+async function loadLeaderboard() {
+  try {
+    const res = await fetch('http://localhost:3000/api/leaderboard');
+    const data = await res.json();
+
+    const tbody = document.querySelector('#scoreboard tbody');
+    tbody.innerHTML = ''; 
+
+    data.forEach((row, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${row.player_name}</td>
+        <td>${row.score}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch (err) {
+    console.error('error while loading scoreboard:', err);
+  }
+}
+
+
+window.addEventListener('DOMContentLoaded', loadLeaderboard);
+</script>
+
+
+<!-- script cho leaderboard -->
+
 
 </body>
 </html>

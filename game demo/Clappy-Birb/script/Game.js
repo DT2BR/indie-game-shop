@@ -43,7 +43,7 @@ window.addEventListener('load', function(){
         for (const box of pipe.getHitboxes()) {
           if (this.checkCollision(this.player, box)) {
             this.gameOver = true;
-
+            this.handleGameOver();
 
           }
         }
@@ -52,6 +52,7 @@ window.addEventListener('load', function(){
       // bird chạm đất
       if (this.player.y + this.player.height >= this.height) {
         this.gameOver = true;
+        this.handleGameOver();
       }
 
       for (const pipe of this.pipes){
@@ -61,6 +62,86 @@ window.addEventListener('load', function(){
 }
     }      
     }
+
+
+// cho back-end    ///////////////////////////////////////////
+    
+
+
+
+async handleGameOver() {
+  if (!this.gameOver) return; // nếu chưa thực sự game over thì bỏ qua
+
+  try {
+    //  lấy top 5 điểm hiện tại
+    const res = await fetch("http://localhost:3000/api/leaderboard");
+    const leaderboard = await res.json();
+
+    //  xác định điểm thấp nhất trong top 5
+    const lowestTopScore =
+      leaderboard.length < 5
+        ? 0
+        : leaderboard[leaderboard.length - 1].score;
+
+    //  nếu điểm của người chơi >= điểm thấp nhất trong top 10 → cho phép nhập tên
+    if (this.score.value > lowestTopScore) {
+      const name =
+        prompt("congrats, you're on top 5!\nEnter your name(5 characters): ") ||
+        "AAA";
+
+      //  gửi dữ liệu lên server để lưu điểm
+      const saveRes = await fetch("http://localhost:3000/api/score", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          player_name: name.slice(0, 5),
+          score: this.score.value,
+        }),
+      });
+
+      if (!saveRes.ok) throw new Error("Lỗi khi lưu điểm!");
+
+      console.log("save successfully.");
+
+      //  nếu có hàm loadLeaderboard() thì gọi để cập nhật bảng xếp hạng
+      if (typeof loadLeaderboard === "function") {
+        loadLeaderboard();
+      }
+    } else {
+      console.log("nice try.");
+    }
+  } catch (err) {
+    console.error("error:", err);
+  }
+}
+
+
+
+async isTop10(score) {
+  try {
+    const res = await fetch("http://localhost:3000/api/leaderboard");
+    const data = await res.json();
+
+    if (data.length < 5) {
+      // nếu chưa có đủ 5 người => luôn được vào bảng
+      return true;
+    }
+
+    // lấy điểm thấp nhất trong top 5
+    const lowestTopScore = data[data.length - 1].score;
+
+    // nếu điểm hiện tại >= điểm thấp nhất trong top 5 => đủ điều kiện
+    return score >= lowestTopScore;
+  } catch (err) {
+    console.error("error while checking top 5", err);
+    return false;
+  }
+}
+
+
+
+/////////////////////////////////////////////////////
+
 
     checkCollision(a, b) {
       const padding = 10; // thu nhỏ collision

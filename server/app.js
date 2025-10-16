@@ -55,7 +55,7 @@ app.post('/api/score', async (req, res) => {
 });
 
 
-// GET /api/leaderboard → lấy top 10 điểm cao nhất
+// GET /api/leaderboard → lấy top 5 điểm cao nhất
 
 app.get('/api/leaderboard', async (req, res) => {
   try {
@@ -63,12 +63,12 @@ app.get('/api/leaderboard', async (req, res) => {
       `SELECT player_name, score, created_at
        FROM scoreboard
        ORDER BY score DESC, created_at ASC
-       LIMIT 10;`
+       LIMIT 5;`
     );
     res.json(result.rows);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'lỗi truy vấn' });
+    
   }
 });
 
