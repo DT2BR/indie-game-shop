@@ -2,48 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Flappy Bird - Chi tiết Game</title>
-  <link rel="stylesheet" href="style_detail.css">
+  <title>Flappy Bird - Game Detail</title>
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style_detail.css">
 </head>
 <body>
-    <header>
-    <a href="./index.html">
-        <img src="../../homepage_img/logo.png" alt="web logo" width="80px" height="80px" >
+  <header>
+    <a href="../../index.html">
+      <img src="../../homepage_img/logo.png" alt="web logo" width="80" height="80">
     </a>
     <h1>Indie Game Shop</h1>
-      <div class="search-bar">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Search Game..."
-      onkeyup="searchGame()"
-    />
-  </div>
-        <nav>
-            <ul>
-                <a href="index.html">Home</a>
-                <a href="games.html">Games</a>
-                <a href="contact.html">Contact</a>
-            </ul>
-        </nav>
-    </header>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search Game..." onkeyup="searchGame()">
+    </div>
+    <nav>
+      <ul>
+        <a href="../../index.html">Home</a>
+        <a href="../../games.html">Games</a>
+        <a href="../../contact.html">Contact</a>
+      </ul>
+    </nav>
+  </header>
 
-  <main>
-    <section class="info">
-      <h2> Giới thiệu</h2>
+  <main class="game-detail-container">
+   
+   
+   
+   
+    <!-- bên trái -->
+    <section class="game-info-left">
+      <h2>About the Game</h2>
       <p>
-        Flappy Bird là trò chơi đơn giản nhưng gây nghiện, nơi bạn điều khiển chú chim vượt qua các ống nước bằng cách nhấn phím Space.
+        <strong>Flappy Bird</strong> is a simple yet addictive arcade game where you guide a small bird through a series of pipes.
+        Each tap on the spacebar makes the bird flap upward — the goal is to survive as long as possible.
       </p>
 
-      <button id="play-btn">▶️ Chơi ngay</button>
+      <h3>Gameplay Preview</h3>
+      <img src="./game_img/img_1.png" alt="Flappy Bird gameplay" class="game-screenshot">
+
+      <p>
+        The game was recreated as part of this Indie Game Shop project to demonstrate simple game mechanics using HTML5 Canvas and JavaScript.
+      </p>
     </section>
 
-    <section class="leaderboard">
-      <h2> Top 5 Người Chơi</h2>
-      <ol id="leaderboard"></ol>
-    </section>
+   
+   
+   
+   
+    <!-- bên phải -->
+    <aside class="game-info-right">
+      <img src="../../game covers/Clappy-Birb.png" alt="Game cover" class="cover-img">
+
+      <div class="btn-group">
+        <button class="btn play-btn" id="play-btn" onclick="window.location.href='../../games demo html/Clappy-Birb.html'"> ▶️ Play Demo</button>
+        <button class="btn buy-btn">💸 Buy Game</button>
+      </div>
+
+      <section class="leaderboard">
+        <h3>Top 5 Players</h3>
+        <ol id="leaderboard"></ol>
+      </section>
+    </aside>
   </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Indie Game Shop</p>
+  </footer>
 
   <script src="js/detail.js"></script>
 </body>
